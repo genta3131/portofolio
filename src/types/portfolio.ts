@@ -4,13 +4,15 @@ export interface SocialLink {
   icon: string;
 }
 
+export interface SkillItem {
+  name: string;
+  level?: string;
+  icon?: string;
+}
+
 export interface SkillCategory {
   category: string;
-  items: {
-    name: string;
-    level?: string;
-    icon?: string;
-  }[];
+  items: SkillItem[];
 }
 
 export interface Project {
@@ -21,6 +23,7 @@ export interface Project {
   liveUrl?: string;
   highlights?: string[];
   featured?: boolean;
+  caseStudy?: boolean;
 }
 
 export interface Experience {
@@ -39,6 +42,11 @@ export interface Education {
   description?: string;
 }
 
+export interface MetricStat {
+  label: string;
+  value: string;
+}
+
 export interface PortfolioData {
   personal: {
     name: string;
@@ -52,12 +60,13 @@ export interface PortfolioData {
     };
     socials: {
       github: string;
-      linkedin: string;
+      linkedin?: string;
       twitter?: string;
       email: string;
       resumeUrl?: string;
     };
   };
+  stats?: MetricStat[];
   skills: SkillCategory[];
   projects: Project[];
   experiences: Experience[];

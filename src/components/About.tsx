@@ -2,50 +2,52 @@ import { portfolioData } from "../data/portfolio";
 import { Terminal } from "lucide-react";
 
 export function About() {
-  const { personal } = portfolioData;
+  const { personal, stats } = portfolioData;
 
   return (
-    <section id="about" className="py-12 border-b border-border/60">
-      <div className="space-y-6">
-        <div className="flex items-center gap-2">
-          <Terminal className="w-5 h-5 text-emerald-500" />
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+    <section id="about" className="py-20 border-b border-border/40">
+      <div className="space-y-10">
+        {/* Section Title */}
+        <div className="reveal flex items-center gap-3">
+          <span className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+            <Terminal className="w-5 h-5 text-emerald-500" />
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground section-title">
             Tentang Saya
           </h2>
         </div>
 
-        <div className="space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
-          {personal.bio.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+          {/* Bio Text */}
+          <div className="lg:col-span-3 space-y-4 reveal delay-100">
+            {personal.bio.map((paragraph, index) => (
+              <p
+                key={index}
+                className="text-muted-foreground leading-relaxed text-sm sm:text-base"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
 
-        {/* Quick specs / metrics */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-          <div className="p-4 rounded-xl border border-border bg-card/60 backdrop-blur">
-            <span className="block text-2xl font-extrabold text-foreground font-mono">
-              3+
-            </span>
-            <span className="text-xs text-muted-foreground">Tahun Pengalaman</span>
-          </div>
-          <div className="p-4 rounded-xl border border-border bg-card/60 backdrop-blur">
-            <span className="block text-2xl font-extrabold text-foreground font-mono">
-              15+
-            </span>
-            <span className="text-xs text-muted-foreground">Proyek Selesai</span>
-          </div>
-          <div className="p-4 rounded-xl border border-border bg-card/60 backdrop-blur">
-            <span className="block text-2xl font-extrabold text-foreground font-mono">
-              99%
-            </span>
-            <span className="text-xs text-muted-foreground">Uptime & Reliability</span>
-          </div>
-          <div className="p-4 rounded-xl border border-border bg-card/60 backdrop-blur">
-            <span className="block text-2xl font-extrabold text-foreground font-mono">
-              Clean
-            </span>
-            <span className="text-xs text-muted-foreground">Code & Architecture</span>
-          </div>
+          {/* Stats Grid */}
+          {stats && stats.length > 0 && (
+            <div className="lg:col-span-2 grid grid-cols-2 gap-3">
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className={`reveal reveal-scale delay-${(idx + 2) * 100} group glass-card p-4 sm:p-5 rounded-2xl hover:border-emerald-500/30 transition-all duration-300 cursor-default`}
+                >
+                  <span className="block text-2xl sm:text-3xl font-black text-foreground font-mono group-hover:text-emerald-500 transition-colors duration-200">
+                    {stat.value}
+                  </span>
+                  <span className="text-xs text-muted-foreground mt-1 block leading-snug">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

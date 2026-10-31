@@ -1,7 +1,7 @@
 "use client";
 
 import { portfolioData } from "../data/portfolio";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Github, Mail, Code2 } from "lucide-react";
 
 export function Footer() {
   const { personal } = portfolioData;
@@ -11,23 +11,65 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-12 border-t border-border/40">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
-        <div>
-          <p>© {new Date().getFullYear()} {personal.name}. All rights reserved.</p>
-          <p className="text-[11px] text-muted-foreground/80 pt-1">
-            Built with Next.js 14, Tailwind CSS & TypeScript • Hosted on Vercel
-          </p>
+    <footer className="py-12 mt-4">
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-10" />
+
+      <div className="space-y-8">
+        {/* Top Row: Brand + Links */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          {/* Brand */}
+          <div className="flex items-center gap-2.5">
+            <span className="p-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
+              <Code2 className="w-4 h-4" />
+            </span>
+            <span className="font-mono text-sm font-bold">
+              <span className="text-emerald-500">
+                {personal.name.split(" ")[0].toLowerCase()}
+              </span>
+              <span className="text-muted-foreground">.dev</span>
+            </span>
+          </div>
+
+          {/* Social Quick Links */}
+          <div className="flex items-center gap-3">
+            <a
+              href={personal.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-emerald-500/40 transition-all duration-200"
+              title="GitHub"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+            <a
+              href={`mailto:${personal.socials.email}`}
+              className="p-2 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-emerald-500/40 transition-all duration-200"
+              title="Email"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
+          </div>
         </div>
 
-        <button
-          onClick={scrollToTop}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-accent text-foreground transition-colors"
-          title="Kembali ke atas"
-        >
-          <span>Back to Top</span>
-          <ArrowUp className="w-3.5 h-3.5" />
-        </button>
+        {/* Bottom Row: Copyright + Back to Top */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-muted-foreground">
+          <div className="text-center sm:text-left space-y-0.5">
+            <p>© {new Date().getFullYear()} {personal.name}. All rights reserved.</p>
+            <p className="text-[11px] opacity-60">
+              Built with Next.js 14 · Tailwind CSS · TypeScript
+            </p>
+          </div>
+
+          <button
+            onClick={scrollToTop}
+            className="glow-btn inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border bg-card hover:border-emerald-500/40 text-muted-foreground hover:text-foreground transition-all duration-200 group"
+            title="Kembali ke atas"
+          >
+            <span>Kembali ke atas</span>
+            <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
+          </button>
+        </div>
       </div>
     </footer>
   );
