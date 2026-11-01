@@ -1,7 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { portfolioData } from "../data/portfolio";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f9fafb" },
+    { media: "(prefers-color-scheme: dark)", color: "#080b10" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: `${portfolioData.personal.name} | ${portfolioData.personal.title}`,
@@ -35,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" suppressHydrationWarning>
-      <body className="min-h-screen antialiased selection:bg-emerald-500/20 selection:text-emerald-500">
+      <body className="min-h-screen overflow-x-hidden antialiased selection:bg-emerald-500/20 selection:text-emerald-500">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

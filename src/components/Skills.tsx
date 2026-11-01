@@ -36,7 +36,7 @@ export function Skills() {
           {skills.map((cat, catIdx) => (
             <div
               key={cat.category}
-              className={`reveal delay-${(catIdx + 1) * 150} group rounded-2xl border bg-gradient-to-b to-transparent p-5 sm:p-6 space-y-4 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/20 transition-all duration-300 ${getCategoryAccent(cat.category)}`}
+              className={`reveal delay-${(catIdx + 1) * 150} group rounded-2xl border bg-gradient-to-b to-transparent p-4 sm:p-6 space-y-4 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/20 transition-all duration-300 ${getCategoryAccent(cat.category)}`}
             >
               {/* Category Header */}
               <div className="flex items-center gap-2.5 pb-3 border-b border-border/40">
@@ -50,7 +50,7 @@ export function Skills() {
               </div>
 
               {/* Skill Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
                 {cat.items.map((skill, skillIdx) => (
                   <div
                     key={skill.name}

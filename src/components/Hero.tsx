@@ -35,7 +35,7 @@ export function Hero() {
 
         {/* Name & Title */}
         <div className="space-y-3 animate-[fadeUp_0.7s_cubic-bezier(0.22,1,0.36,1)_0.15s_both]">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-none">
+          <h1 className="text-3xl xs:text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight sm:leading-none break-words">
             <span className="text-foreground">{personal.name.split(" ")[0]} </span>
             <span className="gradient-text">{personal.name.split(" ").slice(1).join(" ")}</span>
           </h1>

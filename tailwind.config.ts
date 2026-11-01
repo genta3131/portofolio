@@ -20,6 +20,9 @@ const config: Config = {
         card: "var(--card)",
         "card-foreground": "var(--card-foreground)",
       },
+      screens: {
+        xs: "480px",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],

@@ -26,7 +26,7 @@ export function Experience() {
               {experiences.map((exp, idx) => (
                 <div
                   key={idx}
-                  className={`reveal delay-${(idx + 1) * 150} group relative flex gap-6`}
+                  className={`reveal delay-${(idx + 1) * 150} group relative flex gap-3.5 sm:gap-6`}
                 >
                   {/* Timeline Dot */}
                   <div className="shrink-0 flex flex-col items-center z-10">
@@ -37,7 +37,7 @@ export function Experience() {
 
                   {/* Content Card */}
                   <div className="flex-1 pb-2">
-                    <div className="glass-card rounded-2xl p-5 sm:p-6 space-y-3 hover:border-emerald-500/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-emerald-500/5">
+                    <div className="glass-card rounded-2xl p-4 sm:p-6 space-y-3 hover:border-emerald-500/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-emerald-500/5">
                       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1.5">
                         <div>
                           <h3 className="text-base sm:text-lg font-bold text-foreground leading-snug">
@@ -110,7 +110,7 @@ export function Experience() {
               {education.map((edu, idx) => (
                 <div
                   key={idx}
-                  className={`reveal delay-${(idx + 1) * 150} group relative flex gap-6`}
+                  className={`reveal delay-${(idx + 1) * 150} group relative flex gap-3.5 sm:gap-6`}
                 >
                   <div className="shrink-0 flex flex-col items-center z-10">
                     <div className="w-11 h-11 rounded-xl bg-card border-2 border-blue-500/30 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/5 transition-all duration-300 shadow-sm">
@@ -119,7 +119,7 @@ export function Experience() {
                   </div>
 
                   <div className="flex-1 pb-2">
-                    <div className="glass-card rounded-2xl p-5 sm:p-6 space-y-2 hover:border-blue-500/20 transition-all duration-300">
+                    <div className="glass-card rounded-2xl p-4 sm:p-6 space-y-2 hover:border-blue-500/20 transition-all duration-300">
                       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1.5">
                         <div>
                           <h3 className="text-base sm:text-lg font-bold text-foreground">

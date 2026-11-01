@@ -13,7 +13,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8">
         <Hero />
         <ScrollReveal>
           <About />
@@ -24,7 +24,7 @@ export default function Home() {
         </ScrollReveal>
       </main>
 
-      <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <Footer />
       </div>
     </div>

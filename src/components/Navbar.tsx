@@ -51,13 +51,12 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
             ? "bg-background/90 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-border/50"
             : "bg-transparent"
-        }`}
+          }`}
       >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div className="mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Brand */}
           <Link
             href="#"
@@ -66,7 +65,7 @@ export function Navbar() {
             <span className="p-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
               <Code2 className="w-4 h-4" />
             </span>
-            <span className="hidden xs:inline">
+            <span className="inline">
               <span className="text-emerald-500">{firstName}</span>
               <span className="text-muted-foreground">.dev</span>
             </span>
@@ -81,11 +80,10 @@ export function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`relative px-3 py-1.5 rounded-lg transition-all duration-200 ${
-                    isActive
+                  className={`relative px-3 py-1.5 rounded-lg transition-all duration-200 ${isActive
                       ? "text-emerald-500 bg-emerald-500/8"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                  }`}
+                    }`}
                 >
                   {link.label}
                   {isActive && (
@@ -124,9 +122,8 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div
           className="absolute inset-0 bg-background/95 backdrop-blur-xl"
@@ -138,11 +135,10 @@ export function Navbar() {
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className={`text-2xl font-bold tracking-tight py-3 px-8 rounded-xl transition-all duration-200 ${
-                activeSection === link.href.replace("#", "")
+              className={`text-2xl font-bold tracking-tight py-3 px-8 rounded-xl transition-all duration-200 ${activeSection === link.href.replace("#", "")
                   ? "text-emerald-500"
                   : "text-foreground hover:text-emerald-500"
-              }`}
+                }`}
               style={{ transitionDelay: mobileOpen ? `${i * 60}ms` : "0ms" }}
             >
               {link.label}
