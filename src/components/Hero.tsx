@@ -38,6 +38,20 @@ export function Hero() {
             </div>
           )}
 
+          {/* Foto Profil khusus Mobile (tampil di atas nama/headline pada layar HP & Tablet) */}
+          <div className="flex lg:hidden justify-start animate-[fadeUp_0.7s_cubic-bezier(0.22,1,0.36,1)_0.2s_both]">
+            <div className="relative w-36 h-36 xs:w-44 xs:h-44 sm:w-52 sm:h-52 rounded-full p-1.5 border-2 border-emerald-500/20 shadow-xl shadow-emerald-500/10">
+              <Image
+                src="/profile.png"
+                alt={personal.name}
+                fill
+                className="rounded-full object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-emerald-500/10 blur-2xl -z-10 rounded-full" />
+            </div>
+          </div>
+
           {/* Name & Title */}
           <div className="space-y-3 animate-[fadeUp_0.7s_cubic-bezier(0.22,1,0.36,1)_0.15s_both]">
             <h1 className="text-3xl xs:text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight sm:leading-none break-words">
@@ -152,8 +166,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Kolom Kanan: Foto Profil */}
-        <div className="flex justify-center lg:justify-end animate-[fadeUp_0.7s_cubic-bezier(0.22,1,0.36,1)_0.6s_both]">
+        {/* Kolom Kanan: Foto Profil (Khusus Layar Desktop/Laptop) */}
+        <div className="hidden lg:flex justify-end animate-[fadeUp_0.7s_cubic-bezier(0.22,1,0.36,1)_0.6s_both]">
           <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full p-2 border-2 border-emerald-500/20 shadow-2xl shadow-emerald-500/10">
             {/* Pastikan file profilmu bernama 'profile.png' dan ada di folder public */}
             <Image
