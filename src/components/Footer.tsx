@@ -13,14 +13,14 @@ export function Footer() {
   return (
     <footer className="py-12 mt-4">
       {/* Divider */}
-      <div className="h-px mb-10 bg-[linear-gradient(90deg,transparent,rgba(16,185,129,0.45),rgba(34,211,238,0.3),transparent)]" />
+      <div className="h-px mb-10 bg-border" />
 
       <div className="space-y-8">
         {/* Top Row: Brand + Links */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Brand */}
-          <div className="flex items-center gap-2.5">
-            <span className="p-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
+          <div className="flex items-center gap-2">
+            <span className="text-emerald-600 dark:text-emerald-400">
               <Code2 className="w-4 h-4" />
             </span>
             <span className="font-mono text-sm font-bold">
@@ -37,14 +37,14 @@ export function Footer() {
               href={personal.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-emerald-500/40 transition-all duration-200"
+              className="p-2 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-emerald-500/40 transition-colors duration-200"
               title="GitHub"
             >
               <Github className="w-4 h-4" />
             </a>
             <a
               href={`mailto:${personal.socials.email}`}
-              className="p-2 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-emerald-500/40 transition-all duration-200"
+              className="p-2 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-emerald-500/40 transition-colors duration-200"
               title="Email"
             >
               <Mail className="w-4 h-4" />
@@ -53,17 +53,17 @@ export function Footer() {
         </div>
 
         {/* Bottom Row: Copyright + Back to Top */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-muted-foreground">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <div className="text-center sm:text-left space-y-0.5">
-            <p>© {new Date().getFullYear()} {personal.name}. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} {personal.name}.</p>
             <p className="text-[11px] opacity-60">
-              Built with Next.js 14 · Tailwind CSS · TypeScript
+              Built with Next.js · Tailwind CSS · TypeScript
             </p>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="glow-btn inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border bg-card hover:border-emerald-500/40 text-muted-foreground hover:text-foreground transition-all duration-200 group"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border bg-card hover:bg-accent text-muted-foreground hover:text-foreground transition-colors duration-200 group"
             title="Kembali ke atas"
           >
             <span>Kembali ke atas</span>

@@ -51,11 +51,11 @@ export function StatCard({ value, label, className = "" }: StatCardProps) {
   return (
     <div
       ref={ref}
-      className={`spotlight-card group glass-card p-4 sm:p-5 rounded-2xl hover:border-emerald-500/30 transition-all duration-300 cursor-default ${className}`}
+      className={`spotlight-card group glass-card p-4 sm:p-5 rounded-2xl cursor-default ${className}`}
     >
       <span
-        className={`block text-2xl sm:text-3xl font-black font-mono group-hover:text-emerald-500 transition-colors duration-200 ${
-          isNumeric ? "text-foreground" : "gradient-text"
+        className={`block text-2xl sm:text-3xl font-black group-hover:text-emerald-500 transition-colors duration-200 ${
+          isNumeric ? "text-foreground" : "text-emerald-600 dark:text-emerald-400"
         }`}
       >
         {isNumeric ? display : value}

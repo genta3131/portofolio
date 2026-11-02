@@ -51,8 +51,8 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? "bg-background/90 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-border/50"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all ${isScrolled
+            ? "bg-background/80 backdrop-blur-md border-b border-border/50"
             : "bg-transparent"
           }`}
       >
@@ -62,7 +62,7 @@ export function Navbar() {
             href="#"
             className="flex items-center gap-2.5 font-mono text-sm font-bold tracking-tight text-foreground hover:opacity-80 transition-opacity"
           >
-            <span className="p-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
+            <span className="text-emerald-600 dark:text-emerald-400">
               <Code2 className="w-4 h-4" />
             </span>
             <span className="inline">
@@ -80,7 +80,7 @@ export function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`relative px-3 py-1.5 rounded-lg transition-all duration-200 ${isActive
+                  className={`relative px-3 py-1.5 rounded-lg transition-colors duration-200 ${isActive
                       ? "text-emerald-500 bg-emerald-500/8"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent"
                     }`}
@@ -101,7 +101,7 @@ export function Navbar() {
                 href={personal.socials.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 transition-colors"
+                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-border bg-card text-foreground hover:bg-accent transition-colors"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>CV</span>
@@ -122,7 +122,7 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-40 md:hidden transition-all ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
       >
         <div
@@ -135,7 +135,7 @@ export function Navbar() {
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className={`text-2xl font-bold tracking-tight py-3 px-8 rounded-xl transition-all duration-200 ${activeSection === link.href.replace("#", "")
+              className={`text-2xl font-bold tracking-tight py-3 px-8 rounded-xl transition-colors duration-200 ${activeSection === link.href.replace("#", "")
                   ? "text-emerald-500"
                   : "text-foreground hover:text-emerald-500"
                 }`}

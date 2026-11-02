@@ -9,10 +9,7 @@ export function Experience() {
       <div className="space-y-14">
         {/* Work Experience */}
         <div className="space-y-8">
-          <div className="reveal flex items-center gap-3">
-            <span className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-              <Briefcase className="w-5 h-5 text-emerald-500" />
-            </span>
+          <div className="reveal space-y-0.5">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground section-title">
               Pengalaman Kerja
             </h2>
@@ -30,19 +27,14 @@ export function Experience() {
                 >
                   {/* Timeline Dot */}
                   <div className="shrink-0 flex flex-col items-center z-10">
-                    <div className="relative w-11 h-11 rounded-xl bg-card border-2 border-emerald-500/40 flex items-center justify-center group-hover:border-emerald-500 group-hover:bg-emerald-500/5 transition-all duration-300 shadow-sm">
-                      <Briefcase className="w-4 h-4 text-emerald-500" />
-                      {/* Dot status berdenyut */}
-                      <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400/70" />
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                      </span>
+                    <div className="relative w-11 h-11 rounded-xl bg-card border border-border flex items-center justify-center group-hover:border-emerald-500 transition-colors duration-200">
+                      <Briefcase className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     </div>
                   </div>
 
                   {/* Content Card */}
                   <div className="flex-1 pb-2">
-                    <div className="glass-card rounded-2xl p-4 sm:p-6 space-y-3 hover:border-emerald-500/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-emerald-500/5">
+                    <div className="glass-card rounded-2xl p-4 sm:p-6 space-y-3 hover:border-emerald-500/30 transition-colors duration-200">
                       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1.5">
                         <div>
                           <h3 className="text-base sm:text-lg font-bold text-foreground leading-snug">
@@ -53,12 +45,12 @@ export function Experience() {
                           </p>
                         </div>
                         <div className="flex flex-col items-start sm:items-end gap-1 shrink-0">
-                          <div className="inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full border border-border/50">
+                          <div className="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-md">
                             <Calendar className="w-3 h-3" />
                             {exp.period}
                           </div>
                           {exp.location && (
-                            <div className="inline-flex items-center gap-1 text-xs text-muted-foreground font-mono">
+                            <div className="inline-flex items-center gap-1 text-xs text-muted-foreground">
                               <MapPin className="w-3 h-3" />
                               {exp.location}
                             </div>
@@ -83,7 +75,7 @@ export function Experience() {
                           {exp.technologies.map((t) => (
                             <span
                               key={t}
-                              className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-emerald-500/5 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400"
+                              className="text-[11px] px-2.5 py-1 rounded-md bg-muted/60 dark:bg-muted/30 border border-border/50 text-muted-foreground"
                             >
                               {t}
                             </span>
@@ -100,17 +92,14 @@ export function Experience() {
 
         {/* Education */}
         <div className="space-y-8">
-          <div className="reveal flex items-center gap-3">
-            <span className="p-2 rounded-lg bg-violet-500/10 border border-violet-500/20">
-              <GraduationCap className="w-5 h-5 text-violet-500" />
-            </span>
+          <div className="reveal space-y-0.5">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground section-title">
               Pendidikan
             </h2>
           </div>
 
           <div className="relative">
-            <div className="absolute left-[22px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-violet-500/50 via-cyan-500/25 to-violet-500/10 rounded-full" />
+            <div className="absolute left-[22px] top-3 bottom-3 w-[2px] bg-border rounded-full" />
             <div className="space-y-6">
               {education.map((edu, idx) => (
                 <div
@@ -118,23 +107,23 @@ export function Experience() {
                   className={`reveal delay-${(idx + 1) * 150} group relative flex gap-3.5 sm:gap-6`}
                 >
                   <div className="shrink-0 flex flex-col items-center z-10">
-                    <div className="w-11 h-11 rounded-xl bg-card border-2 border-violet-500/30 flex items-center justify-center group-hover:border-violet-500 group-hover:bg-violet-500/5 transition-all duration-300 shadow-sm">
-                      <GraduationCap className="w-4 h-4 text-violet-500" />
+                    <div className="w-11 h-11 rounded-xl bg-card border border-border flex items-center justify-center group-hover:border-emerald-500 transition-colors duration-200">
+                      <GraduationCap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     </div>
                   </div>
 
                   <div className="flex-1 pb-2">
-                    <div className="glass-card rounded-2xl p-4 sm:p-6 space-y-2 hover:border-violet-500/20 transition-all duration-300">
+                    <div className="glass-card rounded-2xl p-4 sm:p-6 space-y-2 hover:border-emerald-500/30 transition-colors duration-200">
                       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1.5">
                         <div>
                           <h3 className="text-base sm:text-lg font-bold text-foreground">
                             {edu.degree}
                           </h3>
-                          <p className="text-sm font-semibold text-violet-600 dark:text-violet-400 mt-0.5">
+                          <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">
                             {edu.institution}
                           </p>
                         </div>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-full border border-border/50 shrink-0 h-fit">
+                        <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/60 px-2.5 py-1 rounded-md shrink-0 h-fit">
                           <Calendar className="w-3 h-3" />
                           {edu.period}
                         </span>

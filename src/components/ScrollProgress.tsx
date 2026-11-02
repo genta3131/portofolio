@@ -22,7 +22,7 @@ export function ScrollProgress() {
       aria-hidden="true"
     >
       <div
-        className="h-full origin-left bg-gradient-to-r from-emerald-500 via-cyan-400 to-violet-500 shadow-sm shadow-emerald-500/40"
+        className="h-full origin-left bg-emerald-500"
         style={{ transform: `scaleX(${progress})` }}
       />
     </div>

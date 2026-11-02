@@ -82,78 +82,11 @@ body {
 .delay-700 { transition-delay: 0.7s; }
 
 /* ============================
-   GLASS CARD EFFECT
+   CARD SURFACE
    ============================ */
 .glass-card {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-}
-.dark .glass-card {
-  background: rgba(13, 17, 23, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* ============================
-   GRADIENT GLOW TEXT
-   ============================ */
-.gradient-text {
-  background: linear-gradient(120deg, #34d399 0%, #10b981 40%, #22d3ee 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ============================
-   GLOW BUTTON
-   ============================ */
-.glow-btn {
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-.glow-btn:hover {
-  box-shadow: 0 0 20px 4px rgba(16, 185, 129, 0.25);
-  transform: translateY(-1px);
-}
-.glow-btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(16, 185, 129, 0.0) 0%,
-    rgba(16, 185, 129, 0.12) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.glow-btn:hover::after {
-  opacity: 1;
-}
-
-/* ============================
-   SHIMMER SKELETON CARD BORDER
-   ============================ */
-.shimmer-border {
-  position: relative;
-  overflow: hidden;
-}
-.shimmer-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(16, 185, 129, 0.15) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2.5s linear infinite;
-  pointer-events: none;
-  border-radius: inherit;
+  background: var(--card);
+  border: 1px solid var(--border);
 }
 
 /* ============================
@@ -189,58 +122,18 @@ body {
    TECH SKILL CARD HOVER
    ============================ */
 .skill-chip {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 .skill-chip:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px -4px rgba(16, 185, 129, 0.2);
   border-color: rgba(16, 185, 129, 0.5);
 }
 
 /* ============================
-   TIMELINE LINE GRADIENT
+   TIMELINE LINE
    ============================ */
 .timeline-line {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(
-    to bottom,
-    rgba(16, 185, 129, 0.7),
-    rgba(34, 211, 238, 0.45),
-    rgba(16, 185, 129, 0.15)
-  );
-}
-/* Animated "energy pulse" flowing down the timeline */
-.timeline-line::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(110, 231, 255, 0.55) 50%,
-    transparent 100%
-  );
-  background-size: 100% 56px;
-  background-repeat: no-repeat;
-  filter: blur(1.5px);
-  animation: line-flow 2.8s ease-in-out infinite;
-}
-@keyframes line-flow {
-  0% { transform: translateY(-64px); }
-  100% { transform: translateY(220px); }
-}
-
-/* ============================
-   HERO GRADIENT BG ORB
-   ============================ */
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
+  background: var(--border);
 }
 
 /* ============================
@@ -251,9 +144,8 @@ body {
   display: block;
   width: 3.5rem;
   height: 2px;
-  background: linear-gradient(90deg, #10b981, #22d3ee 60%, transparent);
+  background: #10b981;
   margin-top: 6px;
-  border-radius: 9999px;
 }
 
 /* Mobile nav overlay */
@@ -267,103 +159,6 @@ body {
 .delay-450 { transition-delay: 0.45s; }
 .delay-750 { transition-delay: 0.75s; }
 .delay-800 { transition-delay: 0.8s; }
-
-/* ============================
-   FILM GRAIN / NOISE TEXTURE
-   ============================ */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 80;
-  pointer-events: none;
-  opacity: 0.02;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-html.dark body::before {
-  opacity: 0.045;
-}
-
-/* ============================
-   SPOTLIGHT CARD (glow mengikuti kursor)
-   ============================ */
-.spotlight-card {
-  position: relative;
-  isolation: isolate;
-  --spot-x: 50%;
-  --spot-y: 0%;
-}
-.spotlight-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  background: radial-gradient(
-    280px circle at var(--spot-x) var(--spot-y),
-    rgba(16, 185, 129, 0.1),
-    rgba(34, 211, 238, 0.05) 45%,
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-.spotlight-card:hover::before {
-  opacity: 1;
-}
-
-/* ============================
-   HERO MOUSE SPOTLIGHT
-   ============================ */
-.hero-spotlight {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: var(--spot-opacity, 0.6);
-  background: radial-gradient(
-    620px at var(--spot-x, 60%) var(--spot-y, 30%),
-    rgba(16, 185, 129, 0.08),
-    rgba(34, 211, 238, 0.05) 40%,
-    transparent 70%
-  );
-}
-@media (hover: none) {
-  .hero-spotlight { display: none; }
-}
-
-/* ============================
-   TYPING CURSOR
-   ============================ */
-.type-cursor {
-  display: inline-block;
-  margin-left: 2px;
-  color: #10b981;
-  animation: blink 1.1s step-end infinite;
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* ============================
-   SPINNING CONIC RING (foto profil)
-   ============================ */
-.spin-conic {
-  background: conic-gradient(
-    from 0deg,
-    rgba(16, 185, 129, 0.9) 0deg,
-    rgba(34, 211, 238, 0.9) 28deg,
-    transparent 52deg,
-    transparent 360deg
-  );
-  animation: spin360 7s linear infinite;
-  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.35));
-}
-@keyframes spin360 {
-  to { transform: rotate(360deg); }
-}
 
 /* ============================
    TECH MARQUEE
@@ -398,21 +193,10 @@ html.dark body::before {
 }
 
 /* ============================
-   FORM INPUT GLOW
-   ============================ */
-.input-glow:focus {
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12),
-    0 0 26px -6px rgba(34, 211, 238, 0.35);
-}
-
-/* ============================
    REDUCED MOTION: matikan efek dekoratif
    ============================ */
 @media (prefers-reduced-motion: reduce) {
-  .marquee,
-  .spin-conic,
-  .type-cursor,
-  .timeline-line::after {
+  .marquee {
     animation: none !important;
   }
   .reveal,
