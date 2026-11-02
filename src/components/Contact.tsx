@@ -13,6 +13,7 @@ import {
   MapPin,
   ArrowRight,
 } from "lucide-react";
+import { SpotlightCard } from "./SpotlightCard";
 
 export function Contact() {
   const { personal } = portfolioData;
@@ -60,7 +61,7 @@ export function Contact() {
           {/* Info Card */}
           <div className="reveal delay-100 lg:col-span-2 flex flex-col gap-4">
             {/* Email Card */}
-            <div className="glass-card rounded-2xl p-6 space-y-4 hover:border-emerald-500/20 transition-all duration-300">
+            <SpotlightCard className="glass-card rounded-2xl p-6 space-y-4 hover:border-emerald-500/20 transition-all duration-300">
               <div>
                 <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-1">
                   Email Langsung
@@ -93,10 +94,10 @@ export function Contact() {
                   </>
                 )}
               </button>
-            </div>
+            </SpotlightCard>
 
             {/* Socials Card */}
-            <div className="glass-card rounded-2xl p-6 space-y-3 hover:border-emerald-500/20 transition-all duration-300">
+            <SpotlightCard className="glass-card rounded-2xl p-6 space-y-3 hover:border-emerald-500/20 transition-all duration-300">
               <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
                 Profil & Lokasi
               </p>
@@ -116,7 +117,7 @@ export function Contact() {
                     href={personal.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-3 rounded-xl border border-border/60 bg-muted/30 hover:border-sky-500/40 hover:bg-sky-500/5 text-sm font-mono text-muted-foreground hover:text-foreground transition-all duration-200 group"
+                    className="flex items-center gap-3 p-3 rounded-xl border border-border/60 bg-muted/30 hover:border-cyan-500/40 hover:bg-cyan-500/5 text-sm font-mono text-muted-foreground hover:text-foreground transition-all duration-200 group"
                   >
                     <span className="w-4 h-4 text-center text-blue-500 font-bold text-xs flex items-center justify-center shrink-0">in</span>
                     <span className="flex-1 font-medium">LinkedIn Profile</span>
@@ -128,8 +129,8 @@ export function Contact() {
                   <span>{personal.location}</span>
                 </div>
               </div>
+             </SpotlightCard>
             </div>
-          </div>
 
           {/* Contact Form */}
           <form
@@ -152,7 +153,7 @@ export function Contact() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Nama lengkap / perusahaan"
-                  className="w-full px-4 py-2.5 text-sm rounded-xl border border-border bg-background/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/50 transition-all placeholder:text-muted-foreground/50"
+                  className="input-glow w-full px-4 py-2.5 text-sm rounded-xl border border-border bg-background/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/50 transition-all placeholder:text-muted-foreground/50"
                 />
               </div>
               <div className="space-y-1.5">
@@ -166,7 +167,7 @@ export function Contact() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="email@perusahaan.com"
-                  className="w-full px-4 py-2.5 text-sm rounded-xl border border-border bg-background/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/50 transition-all placeholder:text-muted-foreground/50"
+                  className="input-glow w-full px-4 py-2.5 text-sm rounded-xl border border-border bg-background/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/50 transition-all placeholder:text-muted-foreground/50"
                 />
               </div>
             </div>
@@ -188,7 +189,7 @@ export function Contact() {
 
             <button
               type="submit"
-              className="glow-btn w-full inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-emerald-500 text-white font-semibold text-sm shadow-lg shadow-emerald-500/20 hover:bg-emerald-400 transition-all duration-200"
+              className="glow-btn w-full inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-emerald-500/20 hover:from-emerald-400 hover:to-cyan-400 transition-all duration-200"
             >
               {isSent ? (
                 <>

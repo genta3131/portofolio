@@ -1,5 +1,8 @@
 import { portfolioData } from "../data/portfolio";
 import Image from "next/image";
+import { HeroSpotlight } from "./HeroSpotlight";
+import { TypingText } from "./TypingText";
+import { TechMarquee } from "./TechMarquee";
 import {
   Github,
   Linkedin,
@@ -18,6 +21,12 @@ export function Hero() {
       {/* Background Orbs */}
       <div className="hero-orb w-[500px] h-[500px] bg-emerald-500/8 dark:bg-emerald-500/6 top-[-80px] right-[-120px]" />
       <div className="hero-orb w-[350px] h-[350px] bg-blue-500/5 dark:bg-blue-500/4 bottom-[60px] left-[-80px]" />
+      {/* Aksen cyan & violet */}
+      <div className="hero-orb w-[380px] h-[380px] bg-cyan-500/5 dark:bg-cyan-500/4 top-[35%] left-[42%]" />
+      <div className="hero-orb w-[280px] h-[280px] bg-violet-500/5 dark:bg-violet-500/4 bottom-[-40px] right-[25%]" />
+
+      {/* Mouse-follow spotlight */}
+      <HeroSpotlight />
 
       {/* Grid BG */}
       <div className="absolute inset-0 grid-bg opacity-100 dark:opacity-60" />
@@ -40,14 +49,20 @@ export function Hero() {
 
           {/* Foto Profil khusus Mobile (tampil di atas nama/headline pada layar HP & Tablet) */}
           <div className="flex lg:hidden justify-start animate-[fadeUp_0.7s_cubic-bezier(0.22,1,0.36,1)_0.2s_both]">
-            <div className="relative w-36 h-36 xs:w-44 xs:h-44 sm:w-52 sm:h-52 rounded-full p-1.5 border-2 border-emerald-500/20 shadow-xl shadow-emerald-500/10">
-              <Image
-                src="/profile.png"
-                alt={personal.name}
-                fill
-                className="rounded-full object-cover"
-                priority
+            <div className="relative w-36 h-36 xs:w-44 xs:h-44 sm:w-52 sm:h-52">
+              <div
+                className="absolute -inset-1 rounded-full spin-conic"
+                aria-hidden="true"
               />
+              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-emerald-500/20 shadow-xl shadow-emerald-500/10">
+                <Image
+                  src="/profile.png"
+                  alt={personal.name}
+                  fill
+                  className="rounded-full object-cover"
+                  priority
+                />
+              </div>
               <div className="absolute inset-0 bg-emerald-500/10 blur-2xl -z-10 rounded-full" />
             </div>
           </div>
@@ -80,6 +95,19 @@ export function Hero() {
               {personal.headline}
               <span className="text-emerald-500/80 font-mono text-2xl leading-none">&rdquo;</span>
             </p>
+          </div>
+
+          {/* Terminal typing line */}
+          <div className="font-mono text-sm sm:text-base animate-[fadeUp_0.7s_cubic-bezier(0.22,1,0.36,1)_0.4s_both]">
+            <span className="text-emerald-500 font-semibold">genta@dev</span>
+            <span className="text-border">:~$</span>{" "}
+            <TypingText
+              className="text-foreground font-semibold"
+              phrases={[
+                ...personal.title.split("|").map((p) => p.trim()),
+                "Open to Work",
+              ]}
+            />
           </div>
 
           {/* Location & Quick Social Links */}
@@ -168,20 +196,32 @@ export function Hero() {
 
         {/* Kolom Kanan: Foto Profil (Khusus Layar Desktop/Laptop) */}
         <div className="hidden lg:flex justify-end animate-[fadeUp_0.7s_cubic-bezier(0.22,1,0.36,1)_0.6s_both]">
-          <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full p-2 border-2 border-emerald-500/20 shadow-2xl shadow-emerald-500/10">
-            {/* Pastikan file profilmu bernama 'profile.png' dan ada di folder public */}
-            <Image
-              src="/profile.png"
-              alt={personal.name}
-              fill
-              className="rounded-full object-cover"
-              priority
+          <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+            {/* Ring conic berputar */}
+            <div
+              className="absolute -inset-1.5 rounded-full spin-conic"
+              aria-hidden="true"
             />
+            {/* Pastikan file profilmu bernama 'profile.png' dan ada di folder public */}
+            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-emerald-500/20 shadow-2xl shadow-emerald-500/10">
+              <Image
+                src="/profile.png"
+                alt={personal.name}
+                fill
+                className="rounded-full object-cover"
+                priority
+              />
+            </div>
             {/* Glow effect di belakang foto */}
             <div className="absolute inset-0 bg-emerald-500/10 blur-3xl -z-10 rounded-full" />
           </div>
         </div>
 
+      </div>
+
+      {/* Tech Marquee — strip stack berjalan */}
+      <div className="relative z-10 mt-16 sm:mt-20 max-w-4xl mx-auto animate-[fadeIn_1s_ease_1.4s_both]">
+        <TechMarquee />
       </div>
     </section>
   );

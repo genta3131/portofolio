@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer className="py-12 mt-4">
       {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-10" />
+      <div className="h-px mb-10 bg-[linear-gradient(90deg,transparent,rgba(16,185,129,0.45),rgba(34,211,238,0.3),transparent)]" />
 
       <div className="space-y-8">
         {/* Top Row: Brand + Links */}

@@ -1,5 +1,18 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 import { ThemeProvider } from "../components/ThemeProvider";
 import { portfolioData } from "../data/portfolio";
 
@@ -44,7 +57,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" suppressHydrationWarning>
+    <html
+      lang="id"
+      suppressHydrationWarning
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="min-h-screen overflow-x-hidden antialiased selection:bg-emerald-500/20 selection:text-emerald-500">
         <ThemeProvider
           attribute="class"

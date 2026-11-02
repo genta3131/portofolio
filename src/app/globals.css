@@ -99,7 +99,7 @@ body {
    GRADIENT GLOW TEXT
    ============================ */
 .gradient-text {
-  background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+  background: linear-gradient(120deg, #34d399 0%, #10b981 40%, #22d3ee 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -201,11 +201,35 @@ body {
    TIMELINE LINE GRADIENT
    ============================ */
 .timeline-line {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(
     to bottom,
     rgba(16, 185, 129, 0.7),
+    rgba(34, 211, 238, 0.45),
     rgba(16, 185, 129, 0.15)
   );
+}
+/* Animated "energy pulse" flowing down the timeline */
+.timeline-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(110, 231, 255, 0.55) 50%,
+    transparent 100%
+  );
+  background-size: 100% 56px;
+  background-repeat: no-repeat;
+  filter: blur(1.5px);
+  animation: line-flow 2.8s ease-in-out infinite;
+}
+@keyframes line-flow {
+  0% { transform: translateY(-64px); }
+  100% { transform: translateY(220px); }
 }
 
 /* ============================
@@ -225,9 +249,9 @@ body {
 .section-title::after {
   content: "";
   display: block;
-  width: 2.5rem;
+  width: 3.5rem;
   height: 2px;
-  background: linear-gradient(90deg, #10b981, transparent);
+  background: linear-gradient(90deg, #10b981, #22d3ee 60%, transparent);
   margin-top: 6px;
   border-radius: 9999px;
 }
@@ -235,4 +259,167 @@ body {
 /* Mobile nav overlay */
 .nav-mobile {
   -webkit-overflow-scrolling: touch;
+}
+
+/* ============================
+   EXTRA STAGGER DELAYS (dipakai reveal dinamis)
+   ============================ */
+.delay-450 { transition-delay: 0.45s; }
+.delay-750 { transition-delay: 0.75s; }
+.delay-800 { transition-delay: 0.8s; }
+
+/* ============================
+   FILM GRAIN / NOISE TEXTURE
+   ============================ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+html.dark body::before {
+  opacity: 0.045;
+}
+
+/* ============================
+   SPOTLIGHT CARD (glow mengikuti kursor)
+   ============================ */
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+  --spot-x: 50%;
+  --spot-y: 0%;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    280px circle at var(--spot-x) var(--spot-y),
+    rgba(16, 185, 129, 0.1),
+    rgba(34, 211, 238, 0.05) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* ============================
+   HERO MOUSE SPOTLIGHT
+   ============================ */
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--spot-opacity, 0.6);
+  background: radial-gradient(
+    620px at var(--spot-x, 60%) var(--spot-y, 30%),
+    rgba(16, 185, 129, 0.08),
+    rgba(34, 211, 238, 0.05) 40%,
+    transparent 70%
+  );
+}
+@media (hover: none) {
+  .hero-spotlight { display: none; }
+}
+
+/* ============================
+   TYPING CURSOR
+   ============================ */
+.type-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #10b981;
+  animation: blink 1.1s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================
+   SPINNING CONIC RING (foto profil)
+   ============================ */
+.spin-conic {
+  background: conic-gradient(
+    from 0deg,
+    rgba(16, 185, 129, 0.9) 0deg,
+    rgba(34, 211, 238, 0.9) 28deg,
+    transparent 52deg,
+    transparent 360deg
+  );
+  animation: spin360 7s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.35));
+}
+@keyframes spin360 {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================
+   TECH MARQUEE
+   ============================ */
+.marquee {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+  to { transform: translateX(calc(-50% - 1.25rem)); }
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* ============================
+   FORM INPUT GLOW
+   ============================ */
+.input-glow:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12),
+    0 0 26px -6px rgba(34, 211, 238, 0.35);
+}
+
+/* ============================
+   REDUCED MOTION: matikan efek dekoratif
+   ============================ */
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .spin-conic,
+  .type-cursor,
+  .timeline-line::after {
+    animation: none !important;
+  }
+  .reveal,
+  .reveal-left,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

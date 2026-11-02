@@ -7,6 +7,7 @@ import {
   Star,
   ShieldCheck,
 } from "lucide-react";
+import { SpotlightCard } from "./SpotlightCard";
 
 export function Projects() {
   const { projects } = portfolioData;
@@ -31,7 +32,8 @@ export function Projects() {
 
         <div className="grid grid-cols-1 gap-6">
           {projects.map((project, idx) => (
-            <article
+            <SpotlightCard
+              tilt
               key={idx}
               className={`reveal delay-${(idx + 1) * 150} group relative rounded-2xl border overflow-hidden transition-all duration-500 ${
                 project.caseStudy
@@ -55,7 +57,7 @@ export function Projects() {
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-center gap-2.5">
                       {project.caseStudy && (
-                        <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest font-mono px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-500 font-bold border border-emerald-500/30">
+                        <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest font-mono px-2.5 py-1 rounded-full bg-gradient-to-r from-emerald-500/20 to-cyan-500/25 text-emerald-500 font-bold border border-emerald-500/30">
                           <Star className="w-3 h-3 fill-current" />
                           Case Study Utama
                         </span>
@@ -159,7 +161,7 @@ export function Projects() {
                   ))}
                 </div>
               </div>
-            </article>
+            </SpotlightCard>
           ))}
         </div>
       </div>

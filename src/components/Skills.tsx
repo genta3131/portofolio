@@ -9,14 +9,14 @@ export function Skills() {
     if (category.toLowerCase().includes("back")) {
       return <Server className="w-5 h-5 text-emerald-500" />;
     }
-    return <Laptop className="w-5 h-5 text-sky-500" />;
+    return <Laptop className="w-5 h-5 text-cyan-500" />;
   };
 
   const getCategoryAccent = (category: string) => {
     if (category.toLowerCase().includes("back")) {
       return "border-emerald-500/20 from-emerald-500/5";
     }
-    return "border-sky-500/20 from-sky-500/5";
+    return "border-cyan-500/20 from-cyan-500/5";
   };
 
   return (
@@ -54,8 +54,13 @@ export function Skills() {
                 {cat.items.map((skill, skillIdx) => (
                   <div
                     key={skill.name}
-                    className={`skill-chip flex items-center gap-2 px-3 py-2.5 rounded-xl bg-muted/40 dark:bg-muted/20 border border-border/60 cursor-default`}
-                    style={{ transitionDelay: `${skillIdx * 40}ms` }}
+                    className="skill-chip flex items-center gap-2 px-3 py-2.5 rounded-xl bg-muted/40 dark:bg-muted/20 border border-border/60 cursor-default"
+                    style={{
+                      transitionDelay: `${skillIdx * 40}ms`,
+                      animation: `fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) ${
+                        catIdx * 120 + skillIdx * 45
+                      }ms both`,
+                    }}
                   >
                     <TechIcon
                       name={skill.icon || skill.name}

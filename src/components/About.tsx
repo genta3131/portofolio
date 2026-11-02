@@ -1,5 +1,6 @@
 import { portfolioData } from "../data/portfolio";
 import { Terminal } from "lucide-react";
+import { StatCard } from "./StatCard";
 
 export function About() {
   const { personal, stats } = portfolioData;
@@ -34,17 +35,12 @@ export function About() {
           {stats && stats.length > 0 && (
             <div className="lg:col-span-2 grid grid-cols-2 gap-3">
               {stats.map((stat, idx) => (
-                <div
+                <StatCard
                   key={idx}
-                  className={`reveal reveal-scale delay-${(idx + 2) * 100} group glass-card p-4 sm:p-5 rounded-2xl hover:border-emerald-500/30 transition-all duration-300 cursor-default`}
-                >
-                  <span className="block text-2xl sm:text-3xl font-black text-foreground font-mono group-hover:text-emerald-500 transition-colors duration-200">
-                    {stat.value}
-                  </span>
-                  <span className="text-xs text-muted-foreground mt-1 block leading-snug">
-                    {stat.label}
-                  </span>
-                </div>
+                  value={stat.value}
+                  label={stat.label}
+                  className={`reveal reveal-scale delay-${(idx + 2) * 100}`}
+                />
               ))}
             </div>
           )}

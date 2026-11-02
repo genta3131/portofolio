@@ -1,4 +1,5 @@
 import { Navbar } from "../components/Navbar";
+import { ScrollProgress } from "../components/ScrollProgress";
 import { Hero } from "../components/Hero";
 import { About } from "../components/About";
 import { Skills } from "../components/Skills";
@@ -11,6 +12,7 @@ import { ScrollReveal } from "../components/ScrollReveal";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <ScrollProgress />
       <Navbar />
 
       <main className="flex-1 w-full px-4 sm:px-6 lg:px-8">

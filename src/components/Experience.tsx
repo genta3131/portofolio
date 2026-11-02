@@ -30,8 +30,13 @@ export function Experience() {
                 >
                   {/* Timeline Dot */}
                   <div className="shrink-0 flex flex-col items-center z-10">
-                    <div className="w-11 h-11 rounded-xl bg-card border-2 border-emerald-500/40 flex items-center justify-center group-hover:border-emerald-500 group-hover:bg-emerald-500/5 transition-all duration-300 shadow-sm">
+                    <div className="relative w-11 h-11 rounded-xl bg-card border-2 border-emerald-500/40 flex items-center justify-center group-hover:border-emerald-500 group-hover:bg-emerald-500/5 transition-all duration-300 shadow-sm">
                       <Briefcase className="w-4 h-4 text-emerald-500" />
+                      {/* Dot status berdenyut */}
+                      <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400/70" />
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                      </span>
                     </div>
                   </div>
 
@@ -96,8 +101,8 @@ export function Experience() {
         {/* Education */}
         <div className="space-y-8">
           <div className="reveal flex items-center gap-3">
-            <span className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20">
-              <GraduationCap className="w-5 h-5 text-blue-500" />
+            <span className="p-2 rounded-lg bg-violet-500/10 border border-violet-500/20">
+              <GraduationCap className="w-5 h-5 text-violet-500" />
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground section-title">
               Pendidikan
@@ -105,7 +110,7 @@ export function Experience() {
           </div>
 
           <div className="relative">
-            <div className="absolute left-[22px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-blue-500/50 to-blue-500/10 rounded-full" />
+            <div className="absolute left-[22px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-violet-500/50 via-cyan-500/25 to-violet-500/10 rounded-full" />
             <div className="space-y-6">
               {education.map((edu, idx) => (
                 <div
@@ -113,19 +118,19 @@ export function Experience() {
                   className={`reveal delay-${(idx + 1) * 150} group relative flex gap-3.5 sm:gap-6`}
                 >
                   <div className="shrink-0 flex flex-col items-center z-10">
-                    <div className="w-11 h-11 rounded-xl bg-card border-2 border-blue-500/30 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/5 transition-all duration-300 shadow-sm">
-                      <GraduationCap className="w-4 h-4 text-blue-500" />
+                    <div className="w-11 h-11 rounded-xl bg-card border-2 border-violet-500/30 flex items-center justify-center group-hover:border-violet-500 group-hover:bg-violet-500/5 transition-all duration-300 shadow-sm">
+                      <GraduationCap className="w-4 h-4 text-violet-500" />
                     </div>
                   </div>
 
                   <div className="flex-1 pb-2">
-                    <div className="glass-card rounded-2xl p-4 sm:p-6 space-y-2 hover:border-blue-500/20 transition-all duration-300">
+                    <div className="glass-card rounded-2xl p-4 sm:p-6 space-y-2 hover:border-violet-500/20 transition-all duration-300">
                       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1.5">
                         <div>
                           <h3 className="text-base sm:text-lg font-bold text-foreground">
                             {edu.degree}
                           </h3>
-                          <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mt-0.5">
+                          <p className="text-sm font-semibold text-violet-600 dark:text-violet-400 mt-0.5">
                             {edu.institution}
                           </p>
                         </div>
